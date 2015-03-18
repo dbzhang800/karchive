@@ -336,7 +336,7 @@ KGzipFilter::Result KGzipFilter::uncompress_noop()
     }
 }
 
-KGzipFilter::Result KGzipFilter::uncompress()
+KGzipFilter::Result KGzipFilter::uncompress_()
 {
 #ifndef NDEBUG
     if (d->mode == 0) {
@@ -370,7 +370,7 @@ KGzipFilter::Result KGzipFilter::uncompress()
     }
 }
 
-KGzipFilter::Result KGzipFilter::compress(bool finish)
+KGzipFilter::Result KGzipFilter::compress_(bool finish)
 {
     Q_ASSERT(d->compressed);
     Q_ASSERT(d->mode == QIODevice::WriteOnly);

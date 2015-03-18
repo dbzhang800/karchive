@@ -101,7 +101,7 @@ int KNoneFilter::outBufferAvailable() const
     return d->avail_out;
 }
 
-KNoneFilter::Result KNoneFilter::uncompress()
+KNoneFilter::Result KNoneFilter::uncompress_()
 {
 #ifndef NDEBUG
     if (d->mode != QIODevice::ReadOnly) {
@@ -111,7 +111,7 @@ KNoneFilter::Result KNoneFilter::uncompress()
     return copyData();
 }
 
-KNoneFilter::Result KNoneFilter::compress(bool finish)
+KNoneFilter::Result KNoneFilter::compress_(bool finish)
 {
     Q_ASSERT(d->mode == QIODevice::WriteOnly);
     Q_UNUSED(finish);

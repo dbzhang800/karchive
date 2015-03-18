@@ -829,7 +829,7 @@ bool KZip::closeArchive()
         //    << it.current()->path()
         //    << "encoding:" << it.current()->encoding();
 
-        uLong mycrc = it.value()->crc32();
+        uLong mycrc = it.value()->crc32_();
         buffer[0] = char(mycrc); // crc checksum, at headerStart+14
         buffer[1] = char(mycrc >> 8);
         buffer[2] = char(mycrc >> 16);
@@ -882,7 +882,7 @@ bool KZip::closeArchive()
 
         transformToMsDos(it.value()->date(), &buffer[ 12 ]);
 
-        uLong mycrc = it.value()->crc32();
+        uLong mycrc = it.value()->crc32_();
         buffer[ 16 ] = char(mycrc); // crc checksum
         buffer[ 17 ] = char(mycrc >> 8);
         buffer[ 18 ] = char(mycrc >> 16);
@@ -1358,7 +1358,7 @@ qint64 KZipFileEntry::headerStart() const
     return d->headerStart;
 }
 
-unsigned long KZipFileEntry::crc32() const
+unsigned long KZipFileEntry::crc32_() const
 {
     return d->crc;
 }

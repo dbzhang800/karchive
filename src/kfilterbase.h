@@ -81,9 +81,9 @@ public:
     /** \internal */
     enum Result { Ok, End, Error };
     /** \internal */
-    virtual Result uncompress() = 0;
+    virtual Result uncompress_() = 0;
     /** \internal */
-    virtual Result compress(bool finish) = 0;
+    virtual Result compress_(bool finish) = 0;
 
     /**
      * \internal

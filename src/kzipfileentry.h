@@ -52,7 +52,7 @@ public:
     qint64 headerStart() const;
 
     /// CRC: only used when writing
-    unsigned long crc32() const;
+    unsigned long crc32_() const;
     void setCRC32(unsigned long crc32);
 
     /// Name with complete path - KArchiveFile::name() is the filename only (no path)

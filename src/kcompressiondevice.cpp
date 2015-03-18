@@ -267,7 +267,7 @@ qint64 KCompressionDevice::readData(char *data, qint64 maxlen)
             d->bNeedHeader = false;
         }
 
-        d->result = filter->uncompress();
+        d->result = filter->uncompress_();
 
         if (d->result == KFilterBase::Error) {
             //qWarning() << "KCompressionDevice: Error when uncompressing data";
@@ -320,7 +320,7 @@ qint64 KCompressionDevice::writeData(const char *data /*0 to finish*/, qint64 le
     uint availIn = len;
     while (dataWritten < len || finish) {
 
-        d->result = filter->compress(finish);
+        d->result = filter->compress_(finish);
 
         if (d->result == KFilterBase::Error) {
             //qWarning() << "KCompressionDevice: Error when compressing data";

@@ -60,8 +60,8 @@ public:
     void setInBuffer(const char *data, uint size) Q_DECL_OVERRIDE;
     int  inBufferAvailable() const Q_DECL_OVERRIDE;
     int  outBufferAvailable() const Q_DECL_OVERRIDE;
-    Result uncompress() Q_DECL_OVERRIDE;
-    Result compress(bool finish) Q_DECL_OVERRIDE;
+    Result uncompress_() Q_DECL_OVERRIDE;
+    Result compress_(bool finish) Q_DECL_OVERRIDE;
 
 private:
     Result uncompress_noop();
